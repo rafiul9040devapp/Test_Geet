@@ -60,7 +60,27 @@ void main() {
 
   print("Result: ${myClass.makeAddition(50, 5.5)}");
   print("Result: ${myClass.makeAddition(0.0012, -5.5)}");
-  print("Result: ${myClass.makeAddition(23,.021457)}");
+  print("Result: ${myClass.makeAddition(23, .021457)}");
+
+  //final vs const
+  //final can help to change in the compile time where const can't....
+
+  //you can't reassign the variable. mainly used for the Constant values
+  //can't use var/dynamic in the final
+  final String name;
+  name = "Raju";
+
+  final names = ["Ramin", "Samin", "Romin"];
+
+  names.addAll(["Romzan", "Rakib", "Sakib", "Sujon"]);
+  print(names);
+
+  //it has to initialize INLINE and also can't reassign
+  const int age = 54;
+
+  //can't add any kind of the value in the list
+  const rolls = [1, 2, 5, 7, 8];
+  print(rolls);
 }
 
 class Bro {
@@ -72,14 +92,15 @@ class Bro {
 }
 
 class MyClass {
-
   //constructor is a special function that has same name as class name
-  MyClass(){
+  MyClass() {
     print("The object Of MyClass is Creaated");
   }
 
-  void printName(var name) {//function declaration
-    print("Testing Purpose: $name"); //the body of the function is called Definition
+  void printName(var name) {
+    //function declaration
+    print(
+        "Testing Purpose: $name"); //the body of the function is called Definition
   }
 
   num? makeAddition(num a, num b) {

@@ -5,6 +5,7 @@ import 'package:test_geet/alertDilogue/AlertDialogue.dart';
 import 'package:test_geet/animatedAlign/WAnimatedAlign.dart';
 
 import 'align/WAlign.dart';
+import 'http/home_screen.dart';
 
 
 void main() {
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
 
       ),
-      home: const WAnimatedAlign()
+      home: const HomeScreen()
     );
   }
 }
