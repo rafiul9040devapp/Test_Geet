@@ -3,6 +3,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:test_geet/aboutListTile/AboutListTile.dart';
 import 'package:test_geet/alertDilogue/AlertDialogue.dart';
 import 'package:test_geet/animatedAlign/WAnimatedAlign.dart';
+import 'package:test_geet/wscube_widgets/wcontainer.dart';
 
 import 'align/WAlign.dart';
 import 'http/home_screen.dart';
@@ -24,6 +25,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const HomeScreen());
+        home: const WContainer());
   }
 }
