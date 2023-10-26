@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 void main() {
   //maps can store data of various types

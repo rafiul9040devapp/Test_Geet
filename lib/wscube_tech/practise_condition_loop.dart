@@ -1,4 +1,3 @@
-import 'dart:io';
 
 void main() {
   print("Enter the Year");
@@ -27,5 +26,5 @@ void main() {
 
 Future<void> fetchUserOrder()  {
   return  Future.delayed(
-       Duration(seconds: 1), () => print("Lemon Ice Tea"));
+       const Duration(seconds: 1), () => print("Lemon Ice Tea"));
 }
