@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:test_geet/floating_button/w_floating_button.dart';
+import 'package:test_geet/grid_view/wgrid_view.dart';
 import 'package:test_geet/wscube_widgets/wimages.dart';
 
 
@@ -21,6 +22,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const WFloatingButton());
+        home: const WGridView());
   }
 }
