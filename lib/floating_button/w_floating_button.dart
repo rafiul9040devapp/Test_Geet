@@ -10,7 +10,7 @@ class WFloatingButton extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           MediaQuery.of(context).size.width<500?"Floating Action Button":"jhgjhhjgjhg",
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.black26,
       ),
