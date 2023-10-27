@@ -33,12 +33,12 @@ class WFloatingButton extends StatelessWidget {
           );
         },
         backgroundColor: Colors.black87,
-        foregroundColor: Colors.cyan,
+        foregroundColor: Colors.cyan.shade50,
         elevation: 0.0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50),
         ),
-        mini: true,
+        mini: false,
         child: const Icon(Icons.add),
       ),
       bottomNavigationBar: const BottomAppBar(
@@ -76,6 +76,18 @@ class WFloatingButton extends StatelessWidget {
                   ),
                   Text(
                     "Shop",
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 10.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    " ",
                     style: TextStyle(color: Colors.white),
                   )
                 ],
