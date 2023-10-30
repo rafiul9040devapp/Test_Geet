@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:test_geet/wscube_widgets/wimages.dart';
+import 'package:test_geet/wlottieanimation/wlottieanimation.dart';
 
 
 void main() {
@@ -20,6 +20,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const WImages());
+        home: const WLottieAnimation());
   }
 }
