@@ -9,10 +9,70 @@ class WFloatingButton extends StatelessWidget {
       backgroundColor: Colors.cyan.shade50,
       appBar: AppBar(
         title: Text(
-          MediaQuery.of(context).size.width<500?"Floating Action Button":"jhgjhhjgjhg",
+          MediaQuery.of(context).size.width < 500
+              ? "Navigation Drawer"
+              : "Floating Action Bar",
           style: const TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.black26,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            const UserAccountsDrawerHeader(
+              accountName: Text("Coding With Fun"),
+              accountEmail: Text("rafiulbinoy@gmail.com"),
+              currentAccountPicture: CircleAvatar(
+                foregroundImage: AssetImage("assets/images/road.jpg"),
+              ),
+              otherAccountsPictures: [
+                CircleAvatar(
+                  foregroundImage: AssetImage("assets/images/rose.jpg"),
+                ),
+                CircleAvatar(
+                  foregroundImage: AssetImage("assets/images/rose.jpg"),
+                ),
+              ],
+            ),
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text("HOME"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(Icons.shopping_cart),
+              title: const Text("SHOP"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(Icons.favorite),
+              title: const Text("FAVORITES"),
+              onTap: () {},
+            ),
+            const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text(
+                "Labels",
+                style: TextStyle(fontSize: 25.0),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.label_important),
+              title: const Text("RED"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(Icons.label_important),
+              title: const Text("GREEN"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(Icons.label_important),
+              title: const Text("BLUE"),
+              onTap: () {},
+            ),
+          ],
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
