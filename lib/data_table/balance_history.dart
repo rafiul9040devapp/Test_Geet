@@ -21,7 +21,7 @@ class BalanceHistory extends StatelessWidget {
               child: TableRowItem(),
             ),
           ),
-           Padding(
+          const Padding(
              padding: const EdgeInsets.all(16.0),
              child: TableRowItem(
                  date: "08 oct 2023",
@@ -30,7 +30,7 @@ class BalanceHistory extends StatelessWidget {
                  amount: "Amount",
                  status: "Status"),
            ),
-           Divider(
+          const Divider(
              color: Colors.grey,
              thickness: 1.0,
            ),
