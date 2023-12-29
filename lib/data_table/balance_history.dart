@@ -15,22 +15,27 @@ class BalanceHistory extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            color: Colors.deepOrange,
-            child: Padding(
+            color: Colors.redAccent,
+            child: const Padding(
               padding: EdgeInsets.all(16.0),
-              child: TableRowItem( time: "Time", invoice: "Invoice", amount: "Amount", status: "Status",color: Colors.lightGreen,),
+              child: TableRowItem(),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.all(16.0),
-            child: TableRowItem(time: "08 oct 2023\n6:18PM", invoice: "asdjklajskdfjasdfsdk", amount: "Amount", status: "Status")
-          ),
-          Divider(color: Colors.grey, thickness: 1.0,),
-
+           Padding(
+             padding: const EdgeInsets.all(16.0),
+             child: TableRowItem(
+                 date: "08 oct 2023",
+                 time: "6:18PM",
+                 invoice: "asdjklajskdfjasdfsdk",
+                 amount: "Amount",
+                 status: "Status"),
+           ),
+           Divider(
+             color: Colors.grey,
+             thickness: 1.0,
+           ),
         ],
       ),
     );
   }
-
-
 }
