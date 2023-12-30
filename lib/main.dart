@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:test_geet/app_theme/gradiant_theme.dart';
+import 'package:test_geet/bmi_calculator/bmi_screen.dart';
 import 'package:test_geet/data_table/balance_history.dart';
 import 'package:test_geet/list_view_column/wlistview_column.dart';
 import 'package:test_geet/responsive_layout/desktop_scaffold.dart';
@@ -29,8 +30,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
-      home: const GradiantTheme(),
-
+      home: const BMIScreen(),
       // home: const ResponsiveLayout(
       //   mobileScaffold: MobileScaffold(),
       //   tabletScaffold: TabletScaffold(),
