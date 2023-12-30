@@ -1,4 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+
+var imagePath = 'assets/images/dice-1.png';
+var randomNumber = Random();
 
 class DiceRoll extends StatefulWidget {
   const DiceRoll({super.key});
@@ -15,8 +20,13 @@ class _DiceRollState extends State<DiceRoll> {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.max,
       children: [
+        Image.asset(
+          imagePath,
+          width: 250,
+        ),
+        const SizedBox(height: 25),
         TextButton(
-          onPressed: () {},
+          onPressed: changeTheDiceNumber,
           child: const Text(
             'Roll Dice',
             textAlign: TextAlign.center,
@@ -24,6 +34,15 @@ class _DiceRollState extends State<DiceRoll> {
           ),
         )
       ],
+    );
+  }
+
+  void changeTheDiceNumber() {
+    setState(
+      () {
+        var number = randomNumber.nextInt(6) + 1;
+        imagePath = 'assets/images/dice-$number.png';
+      },
     );
   }
 }
