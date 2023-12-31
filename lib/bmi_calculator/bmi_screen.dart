@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class BMIScreen extends StatefulWidget {
   const BMIScreen({super.key});
-
   @override
   State<BMIScreen> createState() => _BMIScreenState();
 }
@@ -71,38 +70,8 @@ class _BMIScreenState extends State<BMIScreen> {
               const SizedBox(height: 15),
               ElevatedButton(
                 onPressed: () {
-                  var wt = wtController.text.toString();
-                  var ft = ftController.text.toString();
-                  var inch = inController.text.toString();
-
-                  FocusScope.of(context).unfocus();
-                  wtController.clear();
-                  ftController.clear();
-                  inController.clear();
-
-                  if (wt != '' && ft != '' && inch != '') {
-                    var iWt = int.parse(wt, radix: 10);
-                    var iFt = int.parse(ft, radix: 10);
-                    var iInch = int.parse(inch, radix: 10);
-
-                    var totalInch = (iFt * 12) + iInch;
-                    var totalCentimeter = totalInch * 2.54;
-                    var totalMeter = totalCentimeter / 100;
-
-                    var bmiResult = iWt / (totalMeter * totalMeter);
-
-                    setState(() {
-                      result = 'Your BMI is ${bmiResult.toStringAsFixed(4)}';
-                      backgroundColorStatus = getTheStatusOfBMI(bmiResult);
-                    });
-                  } else {
-                    setState(
-                      () {
-                        result = 'Please Fill All The Required Blanks';
-                        backgroundColorStatus = Colors.white;
-                      },
-                    );
-                  }
+                  calculateBMI(context);
+                  setState(() {});
                 },
                 child: const Text('Calculate'),
               ),
@@ -119,6 +88,38 @@ class _BMIScreenState extends State<BMIScreen> {
         ),
       ),
     );
+  }
+
+  void calculateBMI(BuildContext context) {
+    var wt = wtController.text.toString();
+    var ft = ftController.text.toString();
+    var inch = inController.text.toString();
+
+    cleanTheInputField(context);
+
+    if (wt != '' && ft != '' && inch != '') {
+      var iWt = int.parse(wt, radix: 10);
+      var iFt = int.parse(ft, radix: 10);
+      var iInch = int.parse(inch, radix: 10);
+
+      var totalInch = (iFt * 12) + iInch;
+      var totalCentimeter = totalInch * 2.54;
+      var totalMeter = totalCentimeter / 100;
+
+      var bmiResult = iWt / (totalMeter * totalMeter);
+      result = 'Your BMI is ${bmiResult.toStringAsFixed(4)}';
+      backgroundColorStatus = getTheStatusOfBMI(bmiResult);
+    } else {
+      result = 'Please Fill All The Required Blanks';
+      backgroundColorStatus = Colors.white;
+    }
+  }
+
+  void cleanTheInputField(BuildContext context) {
+    FocusScope.of(context).unfocus();
+    wtController.clear();
+    ftController.clear();
+    inController.clear();
   }
 
   Color getTheStatusOfBMI(double bmiResult) {

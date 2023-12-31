@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
-      home: const CounterGet(),
+      home: const BMIScreen(),
       // home: const ResponsiveLayout(
       //   mobileScaffold: MobileScaffold(),
       //   tabletScaffold: TabletScaffold(),
