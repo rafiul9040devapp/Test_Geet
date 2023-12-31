@@ -12,6 +12,7 @@ class _BMIScreenState extends State<BMIScreen> {
   var ftController = TextEditingController();
   var inController = TextEditingController();
   var result = '';
+  var backgroundColorStatus = Colors.white;
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +26,12 @@ class _BMIScreenState extends State<BMIScreen> {
         centerTitle: true,
         backgroundColor: Colors.cyan,
       ),
+      backgroundColor: backgroundColorStatus,
       body: Center(
         child: SizedBox(
           width: 300,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
@@ -44,6 +46,7 @@ class _BMIScreenState extends State<BMIScreen> {
                   prefixIcon: Icon(Icons.line_weight),
                 ),
                 keyboardType: TextInputType.number,
+                textInputAction: TextInputAction.next,
               ),
               const SizedBox(height: 10),
               TextField(
@@ -53,6 +56,7 @@ class _BMIScreenState extends State<BMIScreen> {
                   prefixIcon: Icon(Icons.height),
                 ),
                 keyboardType: TextInputType.number,
+                textInputAction: TextInputAction.next,
               ),
               const SizedBox(height: 10),
               TextField(
@@ -62,6 +66,7 @@ class _BMIScreenState extends State<BMIScreen> {
                   prefixIcon: Icon(Icons.height),
                 ),
                 keyboardType: TextInputType.number,
+                textInputAction: TextInputAction.done,
               ),
               const SizedBox(height: 15),
               ElevatedButton(
@@ -69,6 +74,11 @@ class _BMIScreenState extends State<BMIScreen> {
                   var wt = wtController.text.toString();
                   var ft = ftController.text.toString();
                   var inch = inController.text.toString();
+
+                  FocusScope.of(context).unfocus();
+                  wtController.clear();
+                  ftController.clear();
+                  inController.clear();
 
                   if (wt != '' && ft != '' && inch != '') {
                     var iWt = int.parse(wt, radix: 10);
@@ -83,11 +93,13 @@ class _BMIScreenState extends State<BMIScreen> {
 
                     setState(() {
                       result = 'Your BMI is ${bmiResult.toStringAsFixed(4)}';
+                      backgroundColorStatus = getTheStatusOfBMI(bmiResult);
                     });
                   } else {
                     setState(
                       () {
                         result = 'Please Fill All The Required Blanks';
+                        backgroundColorStatus = Colors.white;
                       },
                     );
                   }
@@ -107,5 +119,21 @@ class _BMIScreenState extends State<BMIScreen> {
         ),
       ),
     );
+  }
+
+  Color getTheStatusOfBMI(double bmiResult) {
+    if (bmiResult < 18.5) {
+      return Colors.lightBlue;
+    } else if (bmiResult > 18.5 && bmiResult <= 24.9) {
+      return Colors.green;
+    } else if (bmiResult >= 25 && bmiResult <= 29.9) {
+      return Colors.yellowAccent;
+    } else if (bmiResult >= 30 && bmiResult <= 34.9) {
+      return Colors.orange;
+    } else if (bmiResult >= 35) {
+      return Colors.redAccent;
+    } else {
+      return Colors.white;
+    }
   }
 }
