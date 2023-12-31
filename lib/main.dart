@@ -10,6 +10,7 @@ import 'package:test_geet/responsive_layout/responsive_layout.dart';
 import 'package:test_geet/responsive_layout/tablet_scaffold.dart';
 import 'package:test_geet/wlottieanimation/wlottieanimation.dart';
 
+import 'counter/counter_get.dart';
 import 'floating_button/w_floating_button.dart';
 
 void main() {
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 
-      home: const BMIScreen(),
+      home: const CounterGet(),
       // home: const ResponsiveLayout(
       //   mobileScaffold: MobileScaffold(),
       //   tabletScaffold: TabletScaffold(),
