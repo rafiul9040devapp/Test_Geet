@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:test_geet/counter/counter_controller.dart';
 
 class CounterGet extends StatelessWidget {
   const CounterGet({super.key});
 
   @override
   Widget build(BuildContext context) {
+    CounterController controller = Get.put(CounterController());
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -13,16 +16,58 @@ class CounterGet extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: SafeArea(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            FloatingActionButton(
-              onPressed: () {},
-              child: const Icon(
-                Icons.add,
-                size: 35.0,
+            SizedBox(
+              width: 100,
+              height: 100,
+              child: FloatingActionButton(
+                backgroundColor: Colors.greenAccent.shade700,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                onPressed: controller.increment,
+                child: const Icon(
+                  Icons.add,
+                  size: 100.0,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Obx(
+              () => Card(
+                color: Colors.lightBlueAccent,
+                shadowColor: Colors.lightBlue,
+                child: SizedBox(
+                  width: 300,
+                  height: 300,
+                  child: Center(
+                    child: Text(
+                      controller.count.toString(),
+                      style: const TextStyle(
+                          fontSize: 70, fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            SizedBox(
+              height: 100,
+              width: 100,
+              child: FloatingActionButton(
+                backgroundColor: Colors.redAccent.shade700,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                onPressed: controller.decrement,
+                child: const Icon(
+                  Icons.remove,
+                  size: 100.0,
+                ),
               ),
             ),
           ],
