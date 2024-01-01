@@ -25,7 +25,7 @@ class CounterGet extends StatelessWidget {
               width: 100,
               height: 100,
               child: FloatingActionButton(
-                backgroundColor: Colors.greenAccent.shade700,
+                backgroundColor: Colors.greenAccent,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),
                 ),
@@ -39,8 +39,7 @@ class CounterGet extends StatelessWidget {
             const SizedBox(height: 20),
             Obx(
               () => Card(
-                color: Colors.lightBlueAccent,
-                shadowColor: Colors.lightBlue,
+                color: Colors.lightBlueAccent.shade200,
                 child: SizedBox(
                   width: 300,
                   height: 300,
@@ -59,7 +58,7 @@ class CounterGet extends StatelessWidget {
               height: 100,
               width: 100,
               child: FloatingActionButton(
-                backgroundColor: Colors.redAccent.shade700,
+                backgroundColor: Colors.redAccent,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),
                 ),
